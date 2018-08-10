@@ -1,17 +1,19 @@
 #pragma once
 
 class AIComponent;
+class GameBoard;
 
 class Player
 {
 public:
-	Player();
+	Player(int playerNumber);
 	~Player();
 
-	void PlaceSymbol(int row, int column);
+	bool PlaceSymbol(int row, int column);
 	
 	bool IsMyTurn() const;
 	void SetIsMyTurn(bool isMyTurn);
+	void SetGameBoard(GameBoard * gameBoard);
 
 	// AI components
 	void InitializeAI();
@@ -21,6 +23,9 @@ private:
 
 	bool isMyTurn;
 	AIComponent * ai = nullptr;
+	GameBoard * gameBoard = nullptr;
+	int symbol;
+
 
 };
 

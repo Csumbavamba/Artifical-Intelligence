@@ -48,4 +48,16 @@ int GameBoard::GetBoardValue(int row, int column) const
 
 void GameBoard::SetBoardValue(int row, int column, int value)
 {
+	board[row][column] = value;
+}
+
+void GameBoard::ClearBoard()
+{
+	for (int i = 0; i < 3; ++i)
+	{
+		for (int j = 0; j < 3; ++j)
+		{
+			board[i][j] = 0;
+		}
+	}
 }
