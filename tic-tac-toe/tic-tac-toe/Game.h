@@ -29,7 +29,6 @@ public:
 	void ShowEndScreen();
 	void ResetGame();
 
-	// TODO Create Pruning
 
 
 private:

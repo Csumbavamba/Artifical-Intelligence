@@ -182,6 +182,9 @@ void Game::PlayGame()
 		}
 
 		gameBoard->DrawBoard();
+
+		// Uncomment to Check for Pruning Difference - Need to comment in AI Component as well
+		// std::cout << AI->GetAI()->GetChildrenChecked() << std::endl;
 	}
 
 	ShowEndScreen();

@@ -115,7 +115,6 @@ void AIComponent::ClearPotentialPlayStates()
 void AIComponent::CalculatePotentialPlayStateScores()
 {
 	// Go through each element of the vector (calculate their score)
-
 	for (PlayState * potentialMove : potentialPlayStates)
 	{
 		GenerateChildrenPlayStates(potentialMove);
@@ -151,7 +150,17 @@ int AIComponent::MaximiseScore(PlayState * startingPlayState)
 		playerMovement->SetScore(MinimiseScore(playerMovement));
 
 		if (playerMovement->GetScore() > highestScore)
+		{
+			childrenChecked++;
 			highestScore = playerMovement->GetScore();
+
+			// Pruning - COMMENT out to see the difference
+			if (highestScore == 10)
+			{
+				return highestScore;
+			}
+		}
+			
 	}
 
 	return highestScore;
@@ -184,7 +193,17 @@ int AIComponent::MinimiseScore(PlayState * startingPlayState)
 		AIMovement->SetScore(MaximiseScore(AIMovement));
 
 		if (AIMovement->GetScore() < lowestScore)
+		{
+			childrenChecked++;
 			lowestScore = AIMovement->GetScore();
+
+			// Pruning - COMMENT out to see the difference
+			if (lowestScore == -10)
+			{
+				return lowestScore;
+			}
+		}
+			
 
 
 	}
@@ -245,6 +264,11 @@ void AIComponent::PlaceSymbol()
 	// Reset currentPlayState
 	delete currentPlayState;
 	currentPlayState = nullptr;
+}
+
+int AIComponent::GetChildrenChecked() const
+{
+	return childrenChecked;
 }
 
 PlayState * AIComponent::SelectRandomPlayState()

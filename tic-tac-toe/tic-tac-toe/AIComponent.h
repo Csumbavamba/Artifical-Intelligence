@@ -30,6 +30,7 @@ public:
 	PlayState * SelectRandomPlayState(); // Easy AI
 	void PlaceSymbol();
 	
+	int GetChildrenChecked() const; // Check for Pruning
 	
 	
 
@@ -38,6 +39,8 @@ private:
 	GameBoard * board = nullptr;
 	PlayState * currentPlayState = nullptr;
 	std::vector <PlayState*> potentialPlayStates;
+
+	int childrenChecked = 0;
 
 	bool isDifficultAI = true;
 	
