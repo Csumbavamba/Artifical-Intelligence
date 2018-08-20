@@ -16,8 +16,12 @@ void GameBoard::DrawBoard()
 {
 	system("cls");
 
+	std::cout << "     0    1    2 " << std::endl;
+	std::cout << "   --------------" << std::endl;
+
 	for (int i = 0; i < 3; ++i)
 	{
+		std::cout << i << "  ";
 		for (int j = 0; j < 3; j++)
 		{
 			// Player 2
@@ -38,7 +42,10 @@ void GameBoard::DrawBoard()
 		}
 
 		std::cout << std::endl;
+
 	}
+
+	std::cout << std::endl;
 }
 
 int GameBoard::GetBoardValue(int row, int column) const

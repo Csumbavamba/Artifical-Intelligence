@@ -11,7 +11,7 @@ public:
 
 	bool PlaceSymbol(int row, int column);
 	
-	bool IsMyTurn() const;
+	bool GetIsMyTurn() const;
 	void SetIsMyTurn(bool isMyTurn);
 	void SetGameBoard(GameBoard * gameBoard);
 

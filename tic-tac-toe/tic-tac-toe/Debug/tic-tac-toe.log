@@ -1,2 +1,8 @@
-﻿  Game.cpp
+﻿  PlayState.cpp
+  Player.cpp
+  main.cpp
+  GameBoard.cpp
+  Game.cpp
+  AIComponent.cpp
+  Generating Code...
   tic-tac-toe.vcxproj -> D:\Programming\GitHub\Artifical-Intelligence\tic-tac-toe\Debug\tic-tac-toe.exe

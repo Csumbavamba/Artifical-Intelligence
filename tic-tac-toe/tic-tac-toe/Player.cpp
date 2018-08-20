@@ -39,7 +39,7 @@ bool Player::PlaceSymbol(int row, int column)
 		
 }
 
-bool Player::IsMyTurn() const
+bool Player::GetIsMyTurn() const
 {
 	return isMyTurn;
 }
@@ -59,6 +59,7 @@ void Player::InitializeAI()
 {
 	ai = new AIComponent();
 	ai->SetOwningPlayer(this);
+	ai->SetGameBoard(gameBoard);
 }
 
 AIComponent * Player::GetAI()
